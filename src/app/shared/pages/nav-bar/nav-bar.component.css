@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  font-size:20px;
+  display: flex;
+  color: white;
+}
+
+.logo{
+  cursor: pointer;
+  justify-content: left;
+}
+.navbar-nav{
+  list-style: none;
+}
+
+.navbar-nav .nav-item{
+  display: inline;
+  padding: 0 20px;
+
+}
+
+.nav-link{
+  font-size: 700;
+  color: white;
+  text-decoration: none;
+
+}

@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "6d180c87-71ec-4da3-85c3-e55aabe916bf"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -68,7 +71,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "credito_app:build:production"
+              "browserTarget": "credito_app:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "browserTarget": "credito_app:build:development"

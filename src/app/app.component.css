@@ -1,0 +1,10 @@
+header{
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+  display: flex;
+  align-items: center;
+  height: 85px;
+  padding: 5px 10%;
+  justify-content: flex-end;
+  border-radius: 10px;
+}
