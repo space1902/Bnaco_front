@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CreditService } from '../../../credits/services/creditos.service';
-import { delay } from 'rxjs';
 
 var auth_token="";
 @Component({
@@ -17,10 +16,8 @@ export class VisualizePageComponent implements OnInit {
   }
 
   getToken(): any {
-    console.log("aca esta esto1");
     return this.countryService.getToken().subscribe(
       (data: any) => {
-        console.log(data.acces_token);
         auth_token=data.acces_token;
         this.getCredits(auth_token);
       }

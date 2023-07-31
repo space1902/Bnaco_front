@@ -19,26 +19,45 @@ export class CreditService implements OnInit{
     localStorage.setItem('CacheStore', JSON.stringify(this.CacheStore));
   } */
 
-  getToken(): Observable<String> {
+  getToken(): Observable<any> {
     const payload = new HttpParams()
     .set('client_id', "username")
     .set('client_secret', "password");
 
-    const body = {
-      client_id: 'myclient',
-      client_secret: 'myclient'
-    };
-    return this.http.post<String>(this.apiToken, payload)
+    return this.http.post<any>(this.apiToken, payload)
   }
 
+  private createRequestOptions(auth_token:any) {
+
+    console.log("aca esta esto55", auth_token);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${auth_token}`
+    });
+    return headers;
+  }
 
   getCredits(auth_token:any): Observable<any> {
-    console.log("aca esta esto", auth_token);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer${auth_token}`
-      })};
 
-    return this.http.get<any>(this.apiUrl + '/listar', httpOptions);
+    let options = this.createRequestOptions(auth_token);
+    /* const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${auth_token}`
+      })}; */
+
+      console.log("aca esta esto3", this.apiUrl + '/listar', { headers: options });
+
+    return this.http.get<any>(this.apiUrl + '/listar', { headers: options });
+  }
+
+  saveCredit(form:any, auth_token:any): Observable<any> {
+    console.log("envio ", form);
+    let options = this.createRequestOptions(auth_token);
+    return this.http.post<any>(this.apiUrl + '/guardar', form, { headers: options });
+  }
+
+  calcular(monto:any, plazomeses:any, inter:any): Observable<any> {
+    console.log(this.apiUrl + '/calcular' + '/' + monto + '/' + plazomeses + '/' + inter)
+    return this.http.get<any>(this.apiUrl + '/calcular' + '/' + monto + '/' + plazomeses + '/' + inter);
   }
 }

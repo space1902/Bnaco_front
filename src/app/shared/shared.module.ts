@@ -6,6 +6,7 @@ import { CreatePageComponent } from './pages/create-page/create-page.component';
 import { EditPageComponent } from './pages/edit-page/edit-page.component';
 import { VisualizePageComponent } from './pages/visualize-page/visualize-page.component';
 import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -19,7 +20,8 @@ import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     NavBarComponent
